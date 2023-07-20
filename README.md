@@ -1,7 +1,6 @@
 # Questions and Answers
----
+
 ## Contents
----
 ### Fundamentals
 - [What is Machine Learning?](#--what-is-machine-learning)
 - [What is Unsupervised vs Supervised learning difference?](#--what-is-unsupervised-vs-supervised-learning-difference)
@@ -14,8 +13,20 @@
 - [What is data and dataset difference?](#--what-is-data-and-dataset-difference)
 - [What is the difference between supervised and unsupervised learning in terms of dataset?](#--what-is-the-difference-between-supervised-and-unsupervised-learning-in-terms-of-dataset)
 ---
-### - What is Machine Learning?
+### Data Preprocessing
+**Extracting Masks**
+- [What is color space?](#--what-is-color-space)
+- [What RGB stands for?](#--what-rgb-stands-for)
+- [In Python, can we transform from one color space to another?](#--in-python-can-we-transform-from-one-color-space-to-another)
+- [What is the popular library for image processing?](#--what-is-the-popular-library-for-image-processing)
 
+## Fundamentals
+### - What is Machine Learning?
+**Extracting Masks**
+- [What is color space?](#--what-is-color-space)
+- [What RGB stands for?](#--what-rgb-stands-for)
+- [In Python, can we transform from one color space to another?](#--in-python-can-we-transform-from-one-color-space-to-another)
+- [What is the popular library for image processing?](#--what-is-the-popular-library-for-image-processing)
 Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. Machine learning focuses on the development of computer programs that can access data and use it to learn for themselves.
 
 ---
@@ -95,5 +106,34 @@ An unsupervised model, in contrast, provides unlabeled data that the algorithm t
     Supervised   => Input and label
 
     Unsupervised => Input
+
+--- 
+
+## Data Preprocessing
+
+### Extracting Masks
+#### - What is color space?
+
+**Color space** is a mathematical model used to represent colors. Different color spaces allow for the quantitative representation and processing of colors. Color spaces can include various color models and coordinate systems such as RGB (Red Green Blue), CMYK (Cyan Magenta Yellow Key), HSL (Hue Saturation Lightness), and more.
+
+---
+#### - What RGB stands for?
+
+RGB means Red Green Blue, ie the primary colors in additive color synthesis.
+
+A RGB file consists of composite layers of Red, Gree and Blue, each being coded on 256 levels from 0 to 255. For example, black corresponds to the levels R=0, G=0, B=0, and white corresponds to the levels R=255, G=255, B=255.
+
+---
+#### - In Python, can we transform from one color space to another?
+Yes, in Python, it is possible to transform from one color space to another. For this purpose, libraries like OpenCV and some others provide functions to perform color space transformations between different color spaces. For example, in OpenCV, you can use the `cv2.cvtColor()` function to perform color space transformation for an image.
+
+---
+#### - What is the popular library for image processing?
+
+The most popular library for image processing is OpenCV. OpenCV is an open-source and powerful image processing library. It can be used to perform both simple image manipulations and develop more complex computer vision applications.
+
+---
+
+
 
 
