@@ -19,14 +19,9 @@
 - [What RGB stands for?](#--what-rgb-stands-for)
 - [In Python, can we transform from one color space to another?](#--in-python-can-we-transform-from-one-color-space-to-another)
 - [What is the popular library for image processing?](#--what-is-the-popular-library-for-image-processing)
-
+---
 ## Fundamentals
 ### - What is Machine Learning?
-**Extracting Masks**
-- [What is color space?](#--what-is-color-space)
-- [What RGB stands for?](#--what-rgb-stands-for)
-- [In Python, can we transform from one color space to another?](#--in-python-can-we-transform-from-one-color-space-to-another)
-- [What is the popular library for image processing?](#--what-is-the-popular-library-for-image-processing)
 Machine learning is an application of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. Machine learning focuses on the development of computer programs that can access data and use it to learn for themselves.
 
 ---
