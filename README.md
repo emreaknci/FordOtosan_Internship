@@ -68,6 +68,7 @@ In supervised segmentation, the network is provided with target (label) masks co
 In unsupervised segmentation, there is no labeling in the training data, and the network automatically segments the images by learning structures or regions with similar features in the data.
 
 ---
+
 ### - What is classification task in NN? Is it supervised or unsupervised?
 
 A classification task in neural networks involves assigning given data to specific categories or classes using an artificial neural network or deep learning model. For example, it can be used to recognize objects in an image, separate emails into spam and non-spam categories, or diagnose diseases, among various other applications.
@@ -85,6 +86,8 @@ The classification process is easier than segmentation, in classification all ob
 Segmentation is a type of labeling where each pixel in an image is labeled with given concepts. Here, whole images are divided into pixel groupings that can then be labeled and classified to simplify an image or change how an image is presented to the model to make it easier to analyze.
 
 Segmentation models provide the exact outline of the object within an image. That is, pixel by pixel details are provided for a given object, as opposed to Classification models, where the model identifies what is in an image, and Detection models, which places a bounding box around specific objects.
+
+---
 
 ### - What is data and dataset difference? 
 
