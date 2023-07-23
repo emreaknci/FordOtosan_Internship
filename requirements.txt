@@ -1,0 +1,6 @@
+future==0.18.2
+numpy==1.25.1
+opencv-contrib-python==4.8.0.74
+torch==2.0.1
+tqdm==4.65.0
+matplotlib==3.7.2
