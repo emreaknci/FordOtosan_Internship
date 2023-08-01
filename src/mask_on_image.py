@@ -34,7 +34,8 @@ for mask_name in tqdm.tqdm(mask_list):
     # to the mask part and create new image
 
     cpy_image = image.copy()
-    image[mask==1, :]=(255,0,0)
+
+    image[mask==100, :]=(0,255,0)
     opac_image=(image/2+cpy_image/2).astype(np.uint8)
 
     # Write output image into IMAGE_OUT_DIR folder
