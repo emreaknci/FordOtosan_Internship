@@ -25,25 +25,6 @@ from constant import *
 
 
 def tensorize_image(image_path_list, output_shape, cuda=False):
-    """
-
-
-    Parameters
-    ----------
-    image_path_list : list of strings
-        [“data/images/img1.png”, .., “data/images/imgn.png”] corresponds to
-        n images to be trained each step.
-    output_shape : tuple of integers
-        (n1, n2): n1, n2 is width and height of the DNN model’s input.
-    cuda : boolean, optional
-        For multiprocessing,switch to True. The default is False.
-
-    Returns
-    -------
-    torch_image : Torch tensor
-        Batch tensor whose size is [batch_size, output_shape[0], output_shape[1], C].       For this case C = 3.
-
-    """
     # Create empty list
     local_image_list = []
 
@@ -75,28 +56,6 @@ def tensorize_image(image_path_list, output_shape, cuda=False):
     return torch_image
 
 def tensorize_mask(mask_path_list, output_shape, n_class, cuda=False):
-    """
-
-
-    Parameters
-    ----------
-    mask_path_list : list of strings
-        [“data/masks/mask1.png”, .., “data/masks/maskn.png”] corresponds
-        to n masks to be used as labels for each step.
-    output_shape : tuple of integers
-        (n1, n2): n1, n2 is width and height of the DNN model’s input.
-    n_class : integer
-        Number of classes.
-    cuda : boolean, optional
-        For multiprocessing, switch to True. The default is False.
-
-    Returns
-    -------
-    torch_mask : TYPE
-        DESCRIPTION.
-
-    """
-
     # Create empty list
     local_mask_list = []
 
@@ -144,7 +103,6 @@ def image_mask_check(image_path_list, mask_path_list):
 
     return True
 
-############################ TODO ################################
 def torchlike_data(data):
     n_channels = data.shape[2]
     torchlike_data = np.empty((n_channels, data.shape[0], data.shape[1]))#Returns a new array of the given shape and type.
@@ -168,11 +126,6 @@ def one_hot_encoder(data, n_class):
     for i, unique_value in enumerate(np.unique(data)):
         one_hot[:, :, i][data == unique_value] = 1
     return one_hot
-############################ TODO END ################################
-
-
-
-
 
 if __name__ == '__main__':
 
