@@ -26,6 +26,11 @@
 - [What is one hot encoding](#--what-is-one-hot-encoding)
 - [What is CUDA programming?](#--what-is-cuda-programming)
 
+### Design Segmentation Model
+- [What is the difference between CNN and Fully CNN (FCNN)?](#--what-is-the-difference-between-cnn-and-fully-cnn-fcnn-)
+- [What are the different layers on CNN?](#--what-are-the-different-layers-on-cnn)
+- [What is activation function ? Why is softmax usually used in the last layer?](#--what-is-activation-function--why-is-softmax-usually-used-in-the-last-layer)
+
 ---
 
 ## Fundamentals
@@ -196,7 +201,16 @@ CUDA programming is a parallel computing platform and programming model develope
 
 ---
 
+## Design Segmentation Model
+### - What is the difference between CNN and Fully CNN (FCNN) ?
 
+---
+
+### - What are the different layers on CNN?
+
+---
+
+### - What is activation function ? Why is softmax usually used in the last layer?
 
 
 
