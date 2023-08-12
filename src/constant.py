@@ -1,8 +1,15 @@
 import os
 
+# Path to train data
+
+TRAIN_IMG_DIR = '../train_data/img_out'
+TRAIN_JSON_DIR = '../train_data/ann'
+
 # Path to jsons
 JSON_DIR = '../data/jsons'
-
+if not os.path.exists(JSON_DIR):
+    os.mkdir(JSON_DIR)
+    
 # Path to mask
 MASK_DIR  = '../data/masks'
 if not os.path.exists(MASK_DIR):
@@ -21,7 +28,7 @@ IMAGE_DIR = '../data/images'
 VISUALIZE = True
 
 # Bacth size
-BACTH_SIZE = 4
+BATCH_SIZE = 4
 
 # Input dimension
 HEIGHT = 224
