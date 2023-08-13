@@ -203,7 +203,9 @@ CUDA programming is a parallel computing platform and programming model develope
 
 ## Design Segmentation Model
 ### - What is the difference between CNN and Fully CNN (FCNN) ?
+CNNs were originally designed for tasks like image recognition. They usually take images as input and perform feature extraction using various convolutional layers, activation functions, and pooling layers. However, a typical CNN architecture reduces the input size, and the output often contains a single classification result. Therefore, CNNs are commonly used for classification tasks.
 
+FCNNs, on the other hand, are designed to work at the pixel level. FCNN architectures consist entirely of convolutional layers, and the output at the final layers is usually kept at the same size as the input image. As a result, FCNNs are often used in pixel-level prediction tasks such as image segmentation, where the output can be a map indicating which class each pixel of the input image belongs to.
 ---
 
 ### - What are the different layers on CNN?
