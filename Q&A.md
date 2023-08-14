@@ -206,13 +206,46 @@ CUDA programming is a parallel computing platform and programming model develope
 CNNs were originally designed for tasks like image recognition. They usually take images as input and perform feature extraction using various convolutional layers, activation functions, and pooling layers. However, a typical CNN architecture reduces the input size, and the output often contains a single classification result. Therefore, CNNs are commonly used for classification tasks.
 
 FCNNs, on the other hand, are designed to work at the pixel level. FCNN architectures consist entirely of convolutional layers, and the output at the final layers is usually kept at the same size as the input image. As a result, FCNNs are often used in pixel-level prediction tasks such as image segmentation, where the output can be a map indicating which class each pixel of the input image belongs to.
+
 ---
 
 ### - What are the different layers on CNN?
+
+1. Input Layer 
+
+    - Description: This is where the input data, typically an image, is introduced into the network. Each neuron in this layer represents a pixel value.
+    - Purpose  It acts as the starting point for the neural network, receiving the raw data to be processed.
+
+2. Convolutional Layer:
+
+    - Description: This layer applies a set of learnable filters (kernels) to the input data, extracting specific features by performing convolution operations, followed by an activation function such as Rectified Linear Unit (ReLU).
+    - Purpose : It captures important patterns and features in the input data, such as edges, textures, and more complex structures.
+
+3. Pooling Layer:
+
+    - Description: This layer performs down-sampling by selecting the maximum or average value from a local region of the previous layer. It helps reduce the spatial dimensions of the data and makes the network more robust to variations in the input.
+    - Purpose: It reduces the computational load and helps in maintaining important information while discarding less relevant details.
+
+4. Fully Connected Layer:
+
+    - Description: This layer connects each neuron from the previous layer to every neuron in the current layer, just like a traditional neural network. It learns complex combinations of features from the lower layers.
+    - Purpose: It captures high-level features by considering interactions between the features learned in the convolutional layers, leading to better representation of the data.
+
+5. Softmax/Logistic Layer (Softmax/Lojistik Katmanı):
+
+    - Description: This layer is commonly used in classification tasks. It takes the output from the previous layer and converts it into a probability distribution over the different classes.
+    - Purpose: It allows the network to predict the probability of each class, enabling the selection of the most likely class as the final prediction.
+
+6. Output Layer (Çıkış Katmanı):
+
+    - Description: This is the final layer of the network, producing the final output based on the problem being solved. For classification, it represents the predicted class label.
+    - Purpose: It provides the ultimate result of the neural network's processing, whether it's a classification decision, regression prediction, or other task-specific output.
 
 ---
 
 ### - What is activation function ? Why is softmax usually used in the last layer?
 
+An activation function is a mathematical function used in neural networks to determine the output of each neuron. This function takes the total input (weighted sum of inputs) of a neuron and transforms this output into a specific range or format. Activation functions are used in each layer of a neural network and can increase the complexity of the model, capture non-linear relationships, or emphasize specific features.
 
+Softmax is an activation function commonly used in the last layer, especially in classification problems. The softmax function helps to transform the outputs into a probability distribution, aiding in predicting probabilities among different classes. It is particularly useful in multi-class classification problems (problems with multiple classes). Softmax normalizes the probabilities for each class so that they sum to 1, enabling the model to make more reliable predictions about which class an input belongs to.
 
