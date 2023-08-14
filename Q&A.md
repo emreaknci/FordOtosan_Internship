@@ -211,6 +211,17 @@ FCNNs, on the other hand, are designed to work at the pixel level. FCNN architec
 
 ### - What are the different layers on CNN?
 
+- Input layer
+- Convo layer (Convo + ReLU)
+- Pooling layer
+- Fully connected(FC) layer
+- Softmax/logistic layer
+- Output layer
+
+<p align="center">
+    <img src="/images/cnn_layer.png"/>
+</p>
+
 1. Input Layer 
 
     - Description: This is where the input data, typically an image, is introduced into the network. Each neuron in this layer represents a pixel value.
@@ -240,6 +251,8 @@ FCNNs, on the other hand, are designed to work at the pixel level. FCNN architec
 
     - Description: This is the final layer of the network, producing the final output based on the problem being solved. For classification, it represents the predicted class label.
     - Purpose: It provides the ultimate result of the neural network's processing, whether it's a classification decision, regression prediction, or other task-specific output.
+
+These layers can vary in number and order based on the specific CNN architecture used for a given task.
 
 ---
 
