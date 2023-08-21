@@ -3,11 +3,17 @@ import os
 import numpy as np
 import cv2
 import tqdm
-from constant import JSON_DIR, MASK_DIR
+from constant import *
+from missing_data_finder import calculate_missing_items
+
+missing_items = calculate_missing_items(IMAGE_DIR, JSON_DIR)
 
 jsons = os.listdir(JSON_DIR) 
 
-for json_name in tqdm.tqdm(jsons):    
+for json_name in tqdm.tqdm(jsons):
+
+    if any(item in json_name for item in missing_items):
+        continue         
     
     json_path = os.path.join(JSON_DIR, json_name)
     json_file = open(json_path, "r") 
@@ -18,7 +24,7 @@ for json_name in tqdm.tqdm(jsons):
     mask_path = os.path.join(MASK_DIR, json_name[:-5])     
     
     for obj in json_dict["objects"]:
-        if obj["classTitle"]=="Freespace":
+        if obj["classTitle"] == "Freespace":
             cv2.fillPoly(mask, np.array([obj["points"]["exterior"]], dtype=np.int32), color=100)
             if obj["points"]["interior"] != []:
                 for interior in obj["points"]["interior"]:
