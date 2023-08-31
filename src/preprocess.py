@@ -27,7 +27,6 @@ from constant import *
 def tensorize_image(image_path_list, output_shape, cuda=False):
     # Create empty list
     local_image_list = []
-
     # For each image
     for image_path in image_path_list:
 
@@ -87,7 +86,6 @@ def tensorize_mask(mask_path_list, output_shape, n_class, cuda=False):
     return torch_mask
 
 def image_mask_check(image_path_list, mask_path_list):
-    
     if len(image_path_list) != len(mask_path_list):
         print("There are probably missing files. The number of input images and mask images is not the same.")
         return False
