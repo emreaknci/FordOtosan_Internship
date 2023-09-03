@@ -27,6 +27,7 @@ def accuracy():
     total_mismatch_percantage = 0
     i = 0
     print("Calculating accuracy....")
+    accuracies = []
     for true_image_path, predict_image_path in zip(filtered_true_masked_image_files, predict_masked_image_files):
         i += 1
 
@@ -37,12 +38,13 @@ def accuracy():
         predict_img = cv2.imread(predict_path, cv2.IMREAD_GRAYSCALE)
         difference = cv2.absdiff(true_img, predict_img)
 
-        # Farklı piksellerin sayısını hesapla
         non_matching_pixels = np.count_nonzero(difference)
 
         total_pixels = true_img.size
 
         mismatch_percentage = (non_matching_pixels / total_pixels) * 100
         total_mismatch_percantage += mismatch_percentage
+        accuracies.append(100-mismatch_percentage)
 
     print(f"Accuracy: %{100-total_mismatch_percantage/i}")
+    return accuracies

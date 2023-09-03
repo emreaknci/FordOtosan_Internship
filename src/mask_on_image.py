@@ -19,11 +19,11 @@ for mask_name in tqdm.tqdm(mask_list):
     mask_name_without_ex = mask_name.split('.')[0]
 
     # Access required folders
-    mask_path      = os.path.join(PREDICT_DIR, mask_name)
-    image_out_path = os.path.join(PREDICT_DIR, mask_name)
+    mask_path      = os.path.join(MASK_DIR, mask_name)
+    image_out_path = os.path.join(AUGMENTATION_MASKED_IMAGES_DIR, mask_name)
     image_path = None
     for ext in extensions:
-        image_path = os.path.join(IMAGE_DIR, mask_name_without_ex + ext)
+        image_path = os.path.join(AUGMENTATION_DIR, mask_name_without_ex + ext)
         if os.path.exists(image_path):
             break
     # Read mask and corresponding original image

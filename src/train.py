@@ -1,7 +1,7 @@
 import shutil
 import torch
 import tqdm
-from model2 import FoInternNet
+from model import FoInternNet
 from preprocess import tensorize_image, tensorize_mask, image_mask_check
 import os
 import glob
@@ -9,6 +9,7 @@ import numpy as np
 import torch.nn as nn
 import torch.optim as optim
 from matplotlib import pyplot as plt
+import matplotlib.ticker as mticker
 from constant import *
 from predict import predict
 ######### PARAMETERS #########
@@ -19,16 +20,19 @@ epochs = 20
 cuda = False
 input_shape = (224, 224)
 n_classes = 2
+augmentation = True
 ###############################
 
 # MODEL PATH
-modelPath = os.path.join("../models/model2.pt")
+modelPath = os.path.join("../models/model1.pt")
 
 # PREPARE IMAGE AND MASK LISTS
-image_path_list = glob.glob(os.path.join(IMAGE_DIR, '*'))
+image_path_list = glob.glob(os.path.join(
+    AUGMENTATION_DIR if augmentation else IMAGE_DIR, '*'))
 image_path_list.sort()
 
-mask_path_list = glob.glob(os.path.join(MASK_DIR, '*'))
+mask_path_list = glob.glob(os.path.join(
+    AUGMENTATION_MASK_DIR if augmentation else MASK_DIR, '*'))
 mask_path_list.sort()
 
 # DATA CHECK
@@ -56,18 +60,19 @@ train_label_path_list = mask_path_list[valid_ind:]
 # DEFINE STEPS PER EPOCH
 steps_per_epoch = len(train_input_path_list)//batch_size
 
-# CALL MODEL
+# CALL MODEL & DEFINE LOSS FUNCTION AND OPTIMIZER
 
+
+# For model1.py
 # model = FoInternNet(n_channels=3, n_classes=2, bilinear=True)
-model = FoInternNet(n_classes=2)
-
-
-# DEFINE LOSS FUNCTION AND OPTIMIZER
 # criterion = nn.BCELoss()
 # optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 
-criterion =  nn.MSELoss()
-optimizer = optim.Adam(filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4)
+# For model.py
+model = FoInternNet(input_size=input_shape, n_classes=n_classes)
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)
+
 
 # IF CUDA IS USED, IMPORT THE MODEL INTO CUDA
 if cuda:
@@ -76,14 +81,13 @@ if cuda:
 val_losses = []
 train_losses = []
 
-print(test_input_path_list.__len__())
-print(valid_input_path_list.__len__())
-
 # COPY TEST IMAGES TO PREDICT DIRECTORY
 for item in test_input_path_list:
     shutil.copy(item, os.path.join(PREDICT_DIR, os.path.basename(item)))
 
 # TRAINING THE NEURAL NETWORK
+
+
 def train():
     for epoch in tqdm.tqdm(range(epochs)):
         running_loss = 0
@@ -100,7 +104,6 @@ def train():
             optimizer.zero_grad()
 
             outputs = model(batch_input)
-
 
             loss = criterion(outputs, batch_label)
             print(loss)
@@ -135,12 +138,23 @@ def draw_graph(train_losses, val_losses):
     loss_train = [float(i)/sum(train_losses) for i in train_losses]
     loss_val = [float(i)/sum(val_losses) for i in val_losses]
     epochs = list(range(1, epochs+1, 1))
-    plt.plot(epochs, loss_train, 'g', label='Training loss')
-    plt.plot(epochs, loss_val, 'b', label='validation loss')
-    plt.title('Training and Validation loss')
-    plt.xlabel('Epochs')
-    plt.ylabel('Loss')
-    plt.legend()
+
+    plt.figure(figsize=(12, 6))
+    plt.subplot(2, 2, 1)
+    plt.plot(epochs, loss_val, color="red")
+    plt.gca().xaxis.set_major_locator(mticker.MultipleLocator(1))
+    plt.title('Train losses')
+    plt.subplot(2, 2, 2)
+    plt.plot(epochs, loss_train, color="blue")
+    plt.gca().xaxis.set_major_locator(mticker.MultipleLocator(1))
+    plt.title('Validation losses')
+    plt.subplot(2, 1, 2)
+    plt.plot(epochs, loss_val, 'r-', color="red")
+    plt.plot(epochs, loss_train, 'r-', color="blue")
+    plt.legend(['w=1', 'w=2'])
+    plt.title('Train and Validation Losses')
+    plt.gca().xaxis.set_major_locator(mticker.MultipleLocator(1))
+    plt.tight_layout()
     plt.show()
 
 

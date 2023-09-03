@@ -35,6 +35,33 @@ PREDICT_MASKED_IMAGES_DIR = '../../train_data_1/predict_masked_images'
 if not os.path.exists(PREDICT_MASKED_IMAGES_DIR):
     os.mkdir(PREDICT_MASKED_IMAGES_DIR)
 
+AUGMENTATION_DIR = '../../train_data_1/augmentations'
+if not os.path.exists(AUGMENTATION_DIR):
+    os.mkdir(AUGMENTATION_DIR)
+
+AUGMENTATION_MASK_DIR = '../../train_data_1/augmentation_masks'
+if not os.path.exists(AUGMENTATION_MASK_DIR):
+    os.mkdir(AUGMENTATION_MASK_DIR)
+
+AUGMENTATION_MASKED_IMAGES_DIR = '../../train_data_1/augmentation_masked_images'
+if not os.path.exists(AUGMENTATION_MASKED_IMAGES_DIR):
+    os.mkdir(AUGMENTATION_MASKED_IMAGES_DIR)
+
+MODEL_AUG0 = '../../train_data_1/MODEL_AUG0'
+if not os.path.exists(MODEL_AUG0):
+    os.mkdir(MODEL_AUG0)
+
+MODEL_AUG1 = '../../train_data_1/MODEL_AUG1'
+if not os.path.exists(MODEL_AUG1):
+    os.mkdir(MODEL_AUG1)
+
+BESTMODEL_AUG0 = '../../train_data_1/BESTMODEL_AUG0'
+if not os.path.exists(BESTMODEL_AUG0):
+    os.mkdir(BESTMODEL_AUG0)
+
+BESTMODEL_AUG1 = '../../train_data_1/BESTMODEL_AUG1'
+if not os.path.exists(BESTMODEL_AUG1):
+    os.mkdir(BESTMODEL_AUG1)
 
 # In order to visualize masked-image(s), change "False" with "True"
 VISUALIZE = False
